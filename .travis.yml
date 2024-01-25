@@ -8,3 +8,13 @@ before_install:
 script:
   - docker run b0yapati/docker-react npm run test -- --converage
 
+deploy:
+  provider: elasticbeanstalk
+  region: "us-west-2"
+  app: "docker-react"
+  env: "docker-react-env"
+  bucket_name: "elasticbeanstalk-us-west-2-3064"
+  bucket_path: "docker-react"
+  on:
+    branch: master
+
